@@ -2,3 +2,5 @@
 node_modules
 dist
 coverage
+generated/prisma
+package-lock.json
