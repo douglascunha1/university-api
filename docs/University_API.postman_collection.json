@@ -1,0 +1,781 @@
+{
+  "info": {
+    "name": "University API",
+    "description": "Collection completa da University API — NestJS + Prisma + PostgreSQL.\n\nBase URL configurada via variável de ambiente `{{baseUrl}}`.\n\nConfigure em: Environments → selecione 'University API Local' ou ajuste manualmente.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "university-api-collection-v1"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000/api/v1",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Títulos",
+      "description": "Gerenciamento de títulos acadêmicos (Doutor, Mestre, Especialista...)",
+      "item": [
+        {
+          "name": "Listar todos os títulos",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/titulos",
+              "host": ["{{baseUrl}}"],
+              "path": ["titulos"]
+            }
+          }
+        },
+        {
+          "name": "Buscar título por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/titulos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["titulos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Criar título",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx_descricao\": \"Doutor\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/titulos",
+              "host": ["{{baseUrl}}"],
+              "path": ["titulos"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar título",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx_descricao\": \"Doutor em Ciências\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/titulos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["titulos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Remover título",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/titulos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["titulos", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tipos de Curso",
+      "description": "Gerenciamento dos tipos de curso (Bacharelado, Licenciatura, Tecnólogo...)",
+      "item": [
+        {
+          "name": "Listar todos os tipos de curso",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/tipos-curso",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-curso"]
+            }
+          }
+        },
+        {
+          "name": "Buscar tipo de curso por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/tipos-curso/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-curso", "1"]
+            }
+          }
+        },
+        {
+          "name": "Criar tipo de curso",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx_descricao\": \"Bacharelado\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tipos-curso",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-curso"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar tipo de curso",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx_descricao\": \"Bacharelado Interdisciplinar\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tipos-curso/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-curso", "1"]
+            }
+          }
+        },
+        {
+          "name": "Remover tipo de curso",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/tipos-curso/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-curso", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Tipos de Disciplina",
+      "description": "Gerenciamento dos tipos de disciplina (Obrigatória, Optativa, Eletiva...)",
+      "item": [
+        {
+          "name": "Listar todos os tipos de disciplina",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/tipos-disciplina",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-disciplina"]
+            }
+          }
+        },
+        {
+          "name": "Buscar tipo de disciplina por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/tipos-disciplina/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-disciplina", "1"]
+            }
+          }
+        },
+        {
+          "name": "Criar tipo de disciplina",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx_descricao\": \"Obrigatória\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tipos-disciplina",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-disciplina"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar tipo de disciplina",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx_descricao\": \"Optativa Livre\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tipos-disciplina/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-disciplina", "1"]
+            }
+          }
+        },
+        {
+          "name": "Remover tipo de disciplina",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/tipos-disciplina/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["tipos-disciplina", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Instituições",
+      "description": "Gerenciamento de instituições de ensino",
+      "item": [
+        {
+          "name": "Listar todas as instituições",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/instituicoes",
+              "host": ["{{baseUrl}}"],
+              "path": ["instituicoes"]
+            }
+          }
+        },
+        {
+          "name": "Buscar instituição por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/instituicoes/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["instituicoes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Criar instituição",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx_sigla\": \"UNIT\",\n  \"tx_descricao\": \"Universidade Tiradentes\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/instituicoes",
+              "host": ["{{baseUrl}}"],
+              "path": ["instituicoes"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar instituição",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx_sigla\": \"UNIT-SE\",\n  \"tx_descricao\": \"Universidade Tiradentes - Sergipe\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/instituicoes/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["instituicoes", "1"]
+            }
+          }
+        },
+        {
+          "name": "Remover instituição",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/instituicoes/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["instituicoes", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Professores",
+      "description": "Gerenciamento do corpo docente. tx_sexo: 'm' | 'f'. tx_estado_civil: 's' | 'c' | 'd'.",
+      "item": [
+        {
+          "name": "Listar todos os professores",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/professores",
+              "host": ["{{baseUrl}}"],
+              "path": ["professores"]
+            }
+          }
+        },
+        {
+          "name": "Buscar professor por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/professores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["professores", "1"]
+            }
+          }
+        },
+        {
+          "name": "Criar professor",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_titulo\": 4,\n  \"tx_nome\": \"João da Silva\",\n  \"tx_sexo\": \"m\",\n  \"tx_estado_civil\": \"c\",\n  \"dt_nascimento\": \"1975-06-15\",\n  \"tx_telefone\": \"7991234-0000\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/professores",
+              "host": ["{{baseUrl}}"],
+              "path": ["professores"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar professor",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx_nome\": \"João da Silva Neto\",\n  \"tx_estado_civil\": \"d\",\n  \"tx_telefone\": \"7999999-1111\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/professores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["professores", "1"]
+            }
+          }
+        },
+        {
+          "name": "Remover professor",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/professores/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["professores", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cursos",
+      "description": "Gerenciamento de cursos vinculados a instituições e tipos de curso",
+      "item": [
+        {
+          "name": "Listar todos os cursos",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/cursos",
+              "host": ["{{baseUrl}}"],
+              "path": ["cursos"]
+            }
+          }
+        },
+        {
+          "name": "Buscar curso por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/cursos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["cursos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Criar curso",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_instituicao\": 1,\n  \"id_tipo_curso\": 1,\n  \"tx_descricao\": \"Ciência da Computação\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cursos",
+              "host": ["{{baseUrl}}"],
+              "path": ["cursos"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar curso",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx_descricao\": \"Ciência da Computação — Diurno\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cursos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["cursos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Remover curso",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/cursos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["cursos", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Disciplinas",
+      "description": "Gerenciamento de disciplinas. in_periodo >= 1. in_carga_horaria >= 40.",
+      "item": [
+        {
+          "name": "Listar todas as disciplinas",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/disciplinas",
+              "host": ["{{baseUrl}}"],
+              "path": ["disciplinas"]
+            }
+          }
+        },
+        {
+          "name": "Buscar disciplina por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/disciplinas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["disciplinas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Criar disciplina",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_curso\": 1,\n  \"id_tipo_disciplina\": 1,\n  \"tx_sigla\": \"CALC1\",\n  \"tx_descricao\": \"Cálculo I\",\n  \"in_periodo\": 1,\n  \"in_carga_horaria\": 80\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/disciplinas",
+              "host": ["{{baseUrl}}"],
+              "path": ["disciplinas"]
+            }
+          }
+        },
+        {
+          "name": "Criar disciplina sem curso (eletiva)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_tipo_disciplina\": 2,\n  \"tx_sigla\": \"EMPR1\",\n  \"tx_descricao\": \"Empreendedorismo\",\n  \"in_periodo\": 3,\n  \"in_carga_horaria\": 40\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/disciplinas",
+              "host": ["{{baseUrl}}"],
+              "path": ["disciplinas"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar disciplina",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"in_carga_horaria\": 60,\n  \"in_periodo\": 2\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/disciplinas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["disciplinas", "1"]
+            }
+          }
+        },
+        {
+          "name": "Remover disciplina",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/disciplinas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["disciplinas", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Leciona",
+      "description": "Vínculo entre professor e disciplina. PK composta: (id_professor, id_disciplina). Não possui PATCH — para alterar, remova e recrie.",
+      "item": [
+        {
+          "name": "Listar todos os vínculos",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/leciona",
+              "host": ["{{baseUrl}}"],
+              "path": ["leciona"]
+            }
+          }
+        },
+        {
+          "name": "Listar disciplinas de um professor",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/leciona/professor/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["leciona", "professor", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar vínculo por professor + disciplina",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/leciona/1/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["leciona", "1", "1"]
+            }
+          }
+        },
+        {
+          "name": "Vincular professor a disciplina",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_professor\": 1,\n  \"id_disciplina\": 1\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/leciona",
+              "host": ["{{baseUrl}}"],
+              "path": ["leciona"]
+            }
+          }
+        },
+        {
+          "name": "Desvincular professor de disciplina",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/leciona/1/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["leciona", "1", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Alunos",
+      "description": "Gerenciamento do corpo discente. tx_sexo: 'm' | 'f'.",
+      "item": [
+        {
+          "name": "Listar todos os alunos",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/alunos",
+              "host": ["{{baseUrl}}"],
+              "path": ["alunos"]
+            }
+          }
+        },
+        {
+          "name": "Buscar aluno por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/alunos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["alunos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Criar aluno",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx_nome\": \"Maria Eduarda Souza\",\n  \"tx_sexo\": \"f\",\n  \"dt_nascimento\": \"2003-09-14\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/alunos",
+              "host": ["{{baseUrl}}"],
+              "path": ["alunos"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar aluno",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tx_nome\": \"Maria Eduarda Souza Lima\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/alunos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["alunos", "1"]
+            }
+          }
+        },
+        {
+          "name": "Remover aluno",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/alunos/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["alunos", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cursa (Matrículas)",
+      "description": "Registro de matrícula de aluno em disciplina por ano e semestre. PK composta: (id_aluno, id_disciplina, in_ano, in_semestre). Notas e faltas >= 0.",
+      "item": [
+        {
+          "name": "Listar todas as matrículas",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/cursa",
+              "host": ["{{baseUrl}}"],
+              "path": ["cursa"]
+            }
+          }
+        },
+        {
+          "name": "Listar matrículas de um aluno",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/cursa/aluno/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["cursa", "aluno", "1"]
+            }
+          }
+        },
+        {
+          "name": "Buscar matrícula por chave composta",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/cursa/1/1/2024/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["cursa", "1", "1", "2024", "1"]
+            }
+          }
+        },
+        {
+          "name": "Matricular aluno em disciplina",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_aluno\": 1,\n  \"id_disciplina\": 1,\n  \"in_ano\": 2025,\n  \"in_semestre\": 1,\n  \"in_faltas\": 0\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cursa",
+              "host": ["{{baseUrl}}"],
+              "path": ["cursa"]
+            }
+          }
+        },
+        {
+          "name": "Matricular aluno — com notas",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id_aluno\": 2,\n  \"id_disciplina\": 2,\n  \"in_ano\": 2025,\n  \"in_semestre\": 1,\n  \"in_faltas\": 2,\n  \"nm_nota1\": 8.5,\n  \"nm_nota2\": 7.0,\n  \"nm_nota3\": 9.0,\n  \"bl_aprovado\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cursa",
+              "host": ["{{baseUrl}}"],
+              "path": ["cursa"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar notas e faltas",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"in_faltas\": 3,\n  \"nm_nota1\": 9.0,\n  \"nm_nota2\": 8.5,\n  \"nm_nota3\": 7.0,\n  \"bl_aprovado\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cursa/1/1/2025/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["cursa", "1", "1", "2025", "1"]
+            }
+          }
+        },
+        {
+          "name": "Atualizar apenas aprovação",
+          "request": {
+            "method": "PATCH",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"bl_aprovado\": false\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/cursa/1/1/2025/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["cursa", "1", "1", "2025", "1"]
+            }
+          }
+        },
+        {
+          "name": "Cancelar matrícula",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/cursa/1/1/2025/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["cursa", "1", "1", "2025", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
