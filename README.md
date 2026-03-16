@@ -62,6 +62,8 @@ Cada módulo possui endpoints CRUD:
 Entidades:
 - aluno, curso, disciplina, professor, instituicao, leciona, cursa, tipo-curso, tipo-disciplina, titulo
 
+Para documentação completa, importe a collection do Postman disponível em [docs/University_API.postman_collection.json](docs/University_API.postman_collection.json).
+
 ## Validação e Segurança
 
 - Validação automática de dados via DTOs e `class-validator`.
