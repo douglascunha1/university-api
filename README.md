@@ -1,4 +1,4 @@
-# University API
+# Universidade de Computação Avançada (UCA)
 
 ## Descrição
 
@@ -34,6 +34,20 @@ docker-compose up --build
 ```
 
 4. Acesse a API em `http://localhost:3000/api/v1`.
+
+## Frontend
+
+Foi adicionado um frontend React com Vite, Tailwind CSS e `lucide-react` em [frontend/](frontend). Ele consome a API em `/api/v1` por proxy local do Vite.
+
+### Como rodar
+
+1. Garanta que a API esteja ativa em `http://localhost:3000`.
+2. Instale as dependências do frontend dentro de [frontend/package.json](frontend/package.json).
+3. Execute `npm install` e depois `npm run dev` dentro de [frontend/](frontend).
+
+### Observação
+
+O ambiente desta sessão não possui Node.js no PATH, então não foi possível executar a instalação ou a build do frontend aqui.
 
 ## Scripts Principais
 

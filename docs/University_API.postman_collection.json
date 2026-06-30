@@ -1,7 +1,7 @@
 {
   "info": {
-    "name": "University API",
-    "description": "Collection completa da University API — NestJS + Prisma + PostgreSQL.\n\nBase URL configurada via variável de ambiente `{{baseUrl}}`.\n\nConfigure em: Environments → selecione 'University API Local' ou ajuste manualmente.",
+    "name": "Universidade de Computação Avançada",
+    "description": "Collection completa da UCA — NestJS + Prisma + PostgreSQL.\n\nBase URL configurada via variável de ambiente `{{baseUrl}}`.\n\nConfigure em: Environments → selecione 'University API Local' ou ajuste manualmente.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_postman_id": "university-api-collection-v1"
   },
