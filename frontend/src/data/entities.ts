@@ -9,6 +9,7 @@ import {
   Users,
   UserRound,
 } from "lucide-react";
+import { formatDate, formatPhone, formatSexo, formatEstadoCivil } from "../lib/utils";
 
 export type EntityKey =
   | "instituicoes"
@@ -91,7 +92,7 @@ export const entityConfigs: Record<EntityKey, EntityConfig> = {
     canCreate: true,
     getRowTitle: (record) => String(record.tx_sigla ?? "Instituição"),
     getRowSubtitle: (record) => String(record.tx_descricao ?? "Sem descrição"),
-    getRowMeta: (record) => [defaultResult("ID", record.id_instituicao)],
+    getRowMeta: () => [],
     getDetailSections: (record) => [
       { label: "Sigla", value: record.tx_sigla as string | undefined },
       { label: "Descrição", value: record.tx_descricao as string | undefined },
@@ -125,7 +126,7 @@ export const entityConfigs: Record<EntityKey, EntityConfig> = {
     canCreate: true,
     getRowTitle: (record) => String(record.tx_descricao ?? "Tipo de curso"),
     getRowSubtitle: () => "Categoria para organizar cursos",
-    getRowMeta: (record) => [defaultResult("ID", record.id_tipo_curso)],
+    getRowMeta: () => [],
     getDetailSections: (record) => [{ label: "Descrição", value: record.tx_descricao as string | undefined }],
     fields: [{ name: "tx_descricao", label: "Descrição", type: "text", required: true }],
   },
@@ -147,7 +148,7 @@ export const entityConfigs: Record<EntityKey, EntityConfig> = {
     canCreate: true,
     getRowTitle: (record) => String(record.tx_descricao ?? "Tipo de disciplina"),
     getRowSubtitle: () => "Usado para agrupar disciplinas",
-    getRowMeta: (record) => [defaultResult("ID", record.id_tipo_disciplina)],
+    getRowMeta: () => [],
     getDetailSections: (record) => [{ label: "Descrição", value: record.tx_descricao as string | undefined }],
     fields: [{ name: "tx_descricao", label: "Descrição", type: "text", required: true }],
   },
@@ -169,7 +170,7 @@ export const entityConfigs: Record<EntityKey, EntityConfig> = {
     canCreate: true,
     getRowTitle: (record) => String(record.tx_descricao ?? "Título"),
     getRowSubtitle: () => "Referência para cadastro de docentes",
-    getRowMeta: (record) => [defaultResult("ID", record.id_titulo)],
+    getRowMeta: () => [],
     getDetailSections: (record) => [{ label: "Descrição", value: record.tx_descricao as string | undefined }],
     fields: [{ name: "tx_descricao", label: "Descrição", type: "text", required: true }],
   },
@@ -184,7 +185,7 @@ export const entityConfigs: Record<EntityKey, EntityConfig> = {
     accent: "text-violet-700",
     createLabel: "Novo curso",
     idField: "id_curso",
-    summaryFields: ["tx_descricao", "id_instituicao", "id_tipo_curso"],
+    summaryFields: ["tx_descricao"],
     searchableFields: ["tx_descricao"],
     canUpdate: true,
     canDelete: true,
@@ -196,7 +197,6 @@ export const entityConfigs: Record<EntityKey, EntityConfig> = {
       return `${String(instituicao?.tx_sigla ?? "Sem instituição")} • ${String(tipoCurso?.tx_descricao ?? "Sem tipo")}`;
     },
     getRowMeta: (record) => [
-      defaultResult("ID", record.id_curso),
       `Instituição: ${String((record.instituicao as Record<string, unknown> | undefined)?.tx_sigla ?? record.id_instituicao ?? "-")}`,
     ],
     getDetailSections: (record) => [
@@ -269,20 +269,19 @@ export const entityConfigs: Record<EntityKey, EntityConfig> = {
     getRowTitle: (record) => String(record.tx_nome ?? "Professor"),
     getRowSubtitle: (record) => {
       const titulo = record.titulo as Record<string, unknown> | undefined;
-      return `${String(titulo?.tx_descricao ?? "Sem título")} • ${String(record.tx_telefone ?? "Sem telefone")}`;
+      return `${String(titulo?.tx_descricao ?? "Sem título")} • ${formatPhone(record.tx_telefone as string | undefined)}`;
     },
     getRowMeta: (record) => [
-      defaultResult("ID", record.id_professor),
-      `Sexo: ${String(record.tx_sexo ?? "-")}`,
-      `Estado civil: ${String(record.tx_estado_civil ?? "-")}`,
+      `Sexo: ${formatSexo(record.tx_sexo as string | undefined)}`,
+      `Estado civil: ${formatEstadoCivil(record.tx_estado_civil as string | undefined)}`,
     ],
     getDetailSections: (record) => [
       { label: "Nome", value: record.tx_nome as string | undefined },
       { label: "Título", value: (record.titulo as Record<string, unknown> | undefined)?.tx_descricao as string | undefined },
-      { label: "Telefone", value: record.tx_telefone as string | undefined },
-      { label: "Nascimento", value: record.dt_nascimento as string | undefined },
-      { label: "Sexo", value: record.tx_sexo as string | undefined },
-      { label: "Estado civil", value: record.tx_estado_civil as string | undefined },
+      { label: "Telefone", value: formatPhone(record.tx_telefone as string | undefined) },
+      { label: "Nascimento", value: formatDate(record.dt_nascimento as string | undefined) },
+      { label: "Sexo", value: formatSexo(record.tx_sexo as string | undefined) },
+      { label: "Estado civil", value: formatEstadoCivil(record.tx_estado_civil as string | undefined) },
     ],
     fields: [
       { name: "id_titulo", label: "Título", type: "select", required: true, optionsFrom: "titulos" },
@@ -323,12 +322,12 @@ export const entityConfigs: Record<EntityKey, EntityConfig> = {
     canDelete: true,
     canCreate: true,
     getRowTitle: (record) => String(record.tx_nome ?? "Aluno"),
-    getRowSubtitle: (record) => `Sexo: ${String(record.tx_sexo ?? "-")} • Nascimento: ${String(record.dt_nascimento ?? "-")}`,
-    getRowMeta: (record) => [defaultResult("ID", record.id_aluno)],
+    getRowSubtitle: (record) => `Sexo: ${formatSexo(record.tx_sexo as string | undefined)} • Nascimento: ${formatDate(record.dt_nascimento as string | undefined)}`,
+    getRowMeta: () => [],
     getDetailSections: (record) => [
       { label: "Nome", value: record.tx_nome as string | undefined },
-      { label: "Sexo", value: record.tx_sexo as string | undefined },
-      { label: "Nascimento", value: record.dt_nascimento as string | undefined },
+      { label: "Sexo", value: formatSexo(record.tx_sexo as string | undefined) },
+      { label: "Nascimento", value: formatDate(record.dt_nascimento as string | undefined) },
     ],
     fields: [
       { name: "tx_nome", label: "Nome", type: "text", required: true, placeholder: "João Pereira" },
@@ -353,7 +352,7 @@ export const entityConfigs: Record<EntityKey, EntityConfig> = {
     accent: "text-amber-700",
     createLabel: "Nova matrícula",
     idField: "id_aluno",
-    summaryFields: ["id_aluno", "id_disciplina", "in_ano", "in_semestre"],
+    summaryFields: ["in_ano", "in_semestre"],
     searchableFields: ["id_aluno", "id_disciplina"],
     canUpdate: true,
     canDelete: true,
@@ -399,7 +398,7 @@ export const entityConfigs: Record<EntityKey, EntityConfig> = {
     accent: "text-slate-700",
     createLabel: "Novo vínculo",
     idField: "id_professor",
-    summaryFields: ["id_professor", "id_disciplina"],
+    summaryFields: [],
     searchableFields: ["id_professor", "id_disciplina"],
     canUpdate: false,
     canDelete: true,
@@ -410,7 +409,10 @@ export const entityConfigs: Record<EntityKey, EntityConfig> = {
       return `${String(professor?.tx_nome ?? `Professor ${record.id_professor}`)} • ${String(disciplina?.tx_sigla ?? `Disciplina ${record.id_disciplina}`)}`;
     },
     getRowSubtitle: () => "Relacionamento docente/disciplina",
-    getRowMeta: (record) => [defaultResult("Professor", record.id_professor), defaultResult("Disciplina", record.id_disciplina)],
+    getRowMeta: (record) => [
+      `Professor: ${String((record.professor as Record<string, unknown> | undefined)?.tx_nome ?? "-")}`,
+      `Disciplina: ${String((record.disciplina as Record<string, unknown> | undefined)?.tx_sigla ?? "-")}`,
+    ],
     getDetailSections: (record) => [
       { label: "Professor", value: (record.professor as Record<string, unknown> | undefined)?.tx_nome as string | undefined },
       { label: "Disciplina", value: (record.disciplina as Record<string, unknown> | undefined)?.tx_descricao as string | undefined },

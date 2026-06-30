@@ -50,23 +50,6 @@ export function Sidebar({
         />
       </label>
 
-      <div className="mb-5 grid grid-cols-2 gap-3">
-        <div className="rounded-2xl bg-slate-900 p-4 text-white">
-          <div className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-white/70">
-            <Database className="h-4 w-4" />
-            Registros
-          </div>
-          <div className="text-2xl font-semibold">{totalRecords}</div>
-        </div>
-        <div className="rounded-2xl bg-emerald-50 p-4 text-emerald-800">
-          <div className="mb-2 flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-emerald-600">
-            <Sparkles className="h-4 w-4" />
-            Status
-          </div>
-          <div className="text-2xl font-semibold">Online</div>
-        </div>
-      </div>
-
       <div className="mb-5 flex flex-wrap gap-2">
         {entityBadges.map((badge) => (
           <span key={badge.label} className={cn("rounded-full px-3 py-1 text-xs font-medium", badge.tone)}>

@@ -166,7 +166,7 @@ export default function App() {
               <div className="max-w-3xl">
                 <p className="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Dashboard universitário</p>
                 <h2 className="mt-3 text-4xl font-semibold tracking-tight text-slate-900 md:text-5xl">
-                  Gestão acadêmica com uma interface leve, clara e funcional.
+                  Gestão Acadêmica
                 </h2>
                 <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600">
                   Navegue entre instituições, cursos, disciplinas, pessoas e vínculos.

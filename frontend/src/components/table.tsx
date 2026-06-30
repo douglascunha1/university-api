@@ -85,17 +85,6 @@ export function RecordsTable({
                         {String(record[config.idField] ?? "Sem ID")}
                       </span>
                     </div>
-                    <p className="mt-1 text-sm leading-6 text-slate-500">{config.getRowSubtitle(record)}</p>
-                    <p className="mt-3 text-sm text-slate-600">{summary}</p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {config.getRowMeta(record).map((item) =>
-                        item ? (
-                          <span key={item} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-600">
-                            {item}
-                          </span>
-                        ) : null,
-                      )}
-                    </div>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-2">
