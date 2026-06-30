@@ -45,10 +45,6 @@ Foi adicionado um frontend React com Vite, Tailwind CSS e `lucide-react` em [fro
 2. Instale as dependências do frontend dentro de [frontend/package.json](frontend/package.json).
 3. Execute `npm install` e depois `npm run dev` dentro de [frontend/](frontend).
 
-### Observação
-
-O ambiente desta sessão não possui Node.js no PATH, então não foi possível executar a instalação ou a build do frontend aqui.
-
 ## Scripts Principais
 
 - `npm run start:dev`: Inicia API em modo desenvolvimento.
